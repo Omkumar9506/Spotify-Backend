@@ -1,9 +1,10 @@
-const mongoose = require("mongoose");
+const mongoose = require('mongoose');
+
 
 const musicSchema = new mongoose.Schema({
     uri: {
         type: String,
-        required: true
+        required: true,
     },
     title: {
         type: String,
@@ -11,11 +12,13 @@ const musicSchema = new mongoose.Schema({
     },
     artist: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: "spotifyuser",
-        required: true
+        ref: "user",
+        required: true,
     }
 })
 
+
 const musicModel = mongoose.model("music", musicSchema)
 
-module.exports = musicModel
+
+module.exports = musicModel;
